@@ -1,0 +1,7 @@
+{
+  "name": "app-eventos-undb",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
