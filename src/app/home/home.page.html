@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      UNDB Events
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,82 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">UNDB Events</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div id="container" class="ion-padding">
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-list-header>
+            <h1>Our team:</h1>
+          </ion-list-header>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="./assets/avatar/alisson.jpeg">
+            </ion-avatar>
+            <ion-label>
+              <h2>Alisson Gomes</h2>
+              <h3>Software Engineer</h3>
+              <p>ID: 002-021111</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="./assets/avatar/laranjeira.jpeg">
+            </ion-avatar>
+            <ion-label>
+              <h2>Carlos Fernando Laranjeira</h2>
+              <h3>Software Engineer</h3>
+              <p>ID: 002-021111</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="./assets/avatar/caio.jpeg">
+            </ion-avatar>
+            <ion-label>
+              <h2>Caio Victor Sampaio</h2>
+              <h3>Software Engineer</h3>
+              <p>ID: 002-021111</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="./assets/avatar/diogo.jpeg">
+            </ion-avatar>
+            <ion-label>
+              <h2>Diogo Mondego dos Santos</h2>
+              <h3>Software Engineer</h3>
+              <p>ID: 002-021111</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="./assets/avatar/raisa.jpeg">
+            </ion-avatar>
+            <ion-label>
+              <h2>Raísa Nunes Eça de Queiros</h2>
+              <h3>Software Engineer</h3>
+              <p>ID: 002-021111</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
   </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button color="primary" size="large" expand="block" fill="clear">
+      Lets start
+      <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
