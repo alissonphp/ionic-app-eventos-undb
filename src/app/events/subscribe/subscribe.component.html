@@ -1,0 +1,158 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center"> UNDB Events | Subscriber </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">UNDB Events | Subscriber</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-row class="ion-padding">
+    <ion-col>
+      <h1>Submit your subscription</h1>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-padding">
+    <form (ngSubmit)="onSubmit()" [formGroup]="subscriber" #formDir="ngForm">
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Full name</ion-label>
+          <ion-input formControlName="fullname" ngDefaultControl></ion-input>
+          <div
+            *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)"
+            class="errors"
+          >
+            <div *ngIf="fullname.errors.required">
+              <p>* tell me your name</p>
+            </div>
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">E-mail address</ion-label>
+          <ion-input
+            type="email"
+            formControlName="email"
+            ngDefaultControl
+          ></ion-input>
+          <div
+            *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="errors"
+          >
+            <div *ngIf="email.errors.required">
+              <p>* whats your email?</p>
+            </div>
+            <div *ngIf="email.errors.email">
+              <p>* invalid email address</p>
+            </div>
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Phone number</ion-label>
+          <ion-input
+            type="tel"
+            formControlName="phone"
+            ngDefaultControl
+          ></ion-input>
+          <div
+            *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+            class="errors"
+          >
+            <div *ngIf="phone.errors.required">
+              <p>* tell me your phone number</p>
+            </div>
+          </div>
+        </ion-item>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Birth date</ion-label>
+              <ion-input
+                type="date"
+                formControlName="birth"
+                ngDefaultControl
+              ></ion-input>
+              <div
+                *ngIf="birth.invalid && (birth.dirty || birth.touched)"
+                class="errors"
+              >
+                <div *ngIf="birth.errors.required">
+                  <p>* tell me your birth date</p>
+                </div>
+              </div>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Document</ion-label>
+              <ion-input
+                type="tel"
+                formControlName="document"
+                ngDefaultControl
+              ></ion-input>
+              <div
+                *ngIf="document.invalid && (document.dirty || document.touched)"
+                class="errors"
+              >
+                <div *ngIf="document.errors.required">
+                  <p>* tell me your document number</p>
+                </div>
+              </div>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-item>
+          <ion-label>Event</ion-label>
+          <ion-select
+            (ionChange)="onChange($event)"
+            interface="action-sheet"
+            *ngIf="events && events.length"
+          >
+            <ion-select-option *ngFor="let e of events" [value]="e.title">
+              {{ e.title | uppercase }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input
+            type="password"
+            formControlName="password"
+            ngDefaultControl
+          ></ion-input>
+          <div
+            *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="errors"
+          >
+            <div *ngIf="password.errors.required">
+              <p>* choose your password</p>
+            </div>
+            <div *ngIf="password.errors.minlength">
+              <p>* min 6 chars</p>
+            </div>
+          </div>
+        </ion-item>
+      </ion-col>
+    </form>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button
+      color="primary"
+      expand="block"
+      (click)="onSubmit()"
+      [disabled]="!subscriber.valid"
+      fill="clear"
+      routerLink="/events"
+    >
+      Submit subscription
+      <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
